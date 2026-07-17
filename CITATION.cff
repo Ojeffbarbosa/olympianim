@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Se você utilizar o Olympianim em uma pesquisa, cite este software."
+title: "Olympianim"
+type: software
+authors:
+  - family-names: "Barbosa"
+    given-names: "Jefferson"
+repository-code: "https://github.com/Ojeffbarbosa/olympianim"
+license: MIT
+version: 0.1.0

@@ -1,0 +1,208 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "olympianim"
+version = "0.1.0"
+description = "Ferramenta local multiagente para autoria de vídeos educacionais de matemática olímpica com IA generativa e Manim"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Jefferson Barbosa" }]
+keywords = [
+    "manim",
+    "langgraph",
+    "multiagent",
+    "education",
+    "olympiad",
+    "mathematics",
+    "streamlit",
+    "voiceover",
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Education",
+    "Topic :: Multimedia :: Video",
+    "Typing :: Typed",
+]
+
+dependencies = [
+    "streamlit>=1.59",
+    "streamlit-code-editor>=0.1.15",
+    "langgraph>=1.2",
+    "langgraph-checkpoint-sqlite>=3.1.0",
+    "langchain>=1.0",
+    "httpx>=0.28",
+    "beautifulsoup4>=4.13",
+    "pillow>=10.4",
+    "pydantic>=2.13",
+    "python-dotenv>=1.0",
+    "numpy>=2.0",
+    "manim>=0.20.1,<0.21",
+    "manim-voiceover>=0.4",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.50", "langchain-openai>=1.0"]
+google = ["google-genai>=2.10.0", "langchain-google-genai>=3.0"]
+anthropic = ["anthropic>=0.40", "langchain-anthropic>=1.0"]
+voice-openai = ["openai>=1.50"]
+voice-google = ["google-genai>=2.10.0"]
+dev = [
+    "ruff>=0.9",
+    "black>=25.1",
+    "mypy>=1.14",
+    "pytest>=8.3",
+    "pytest-cov>=6.0",
+]
+all = [
+    "openai>=1.50",
+    "google-genai>=2.10.0",
+    "anthropic>=0.40",
+    "langchain-openai>=1.0",
+    "langchain-google-genai>=3.0",
+    "langchain-anthropic>=1.0",
+]
+
+[project.urls]
+Documentation = "https://github.com/Ojeffbarbosa/olympianim#readme"
+Source = "https://github.com/Ojeffbarbosa/olympianim"
+
+[project.scripts]
+olympianim = "olympianim.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/olympianim"]
+
+[tool.hatch.build.targets.sdist]
+only-include = [
+    "src/olympianim",
+    ".env.example",
+    "README.md",
+    "SECURITY.md",
+    "CITATION.cff",
+    "LICENSE",
+    "requirements.txt",
+    "uv.lock",
+]
+
+# ---------------------------------------------------------------------------
+# Ruff: linting and style (PEP 8 compliance)
+# ---------------------------------------------------------------------------
+[tool.ruff]
+line-length = 99
+target-version = "py312"
+src = ["src", "tests", "olympianim"]
+extend-exclude = ["workspace", ".venv"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort (import ordering)
+    "N",   # pep8-naming
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "SIM", # flake8-simplify
+    "T20", # flake8-print
+    "RUF", # ruff-specific rules
+]
+ignore = [
+    "E501",  # line length handled by formatter (black) and line-length setting
+]
+
+[tool.ruff.lint.pep8-naming]
+extend-ignore-names = ["setUp", "tearDown"]
+
+[tool.ruff.lint.per-file-ignores]
+# CLI entry point legitimately writes to stdout.
+"src/olympianim/cli.py" = ["T201"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["olympianim"]
+force-single-line = false
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+# ---------------------------------------------------------------------------
+# Black: code formatting
+# ---------------------------------------------------------------------------
+[tool.black]
+line-length = 99
+target-version = ["py312"]
+extend-exclude = "/workspace/|/.venv/"
+
+# ---------------------------------------------------------------------------
+# Mypy: static type checking
+# ---------------------------------------------------------------------------
+[tool.mypy]
+python_version = "3.12"
+mypy_path = ["src", "typings"]
+packages = ["olympianim"]
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+no_implicit_optional = true
+show_error_codes = true
+exclude = ["workspace/", ".venv/", "build/", "dist/"]
+
+# Gradual typing: third-party libraries without stubs are allowed permissive.
+[[tool.mypy.overrides]]
+module = [
+    "langchain_anthropic.*",
+    "langchain_google_genai.*",
+    "langchain_openai.*",
+    "langgraph.*",
+    "manim.*",
+    "manim_voiceover.*",
+    "streamlit.*",
+]
+ignore_missing_imports = true
+
+# ---------------------------------------------------------------------------
+# Pytest
+# ---------------------------------------------------------------------------
+[tool.pytest.ini_options]
+minversion = "8.3"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+    "--showlocals",
+]
+markers = [
+    "unit: unit tests (no external dependencies)",
+    "integration: integration tests (may require API keys or Manim)",
+    "slow: tests that take a long time to run (e.g. rendering)",
+]
+
+[tool.coverage.run]
+source = ["src/olympianim"]
+omit = ["*/tests/*", "*/workspace/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]

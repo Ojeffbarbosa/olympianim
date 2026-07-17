@@ -1,0 +1,66 @@
+name: Quality
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Scan repository history for secrets
+        run: |
+          docker run --rm --volume "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.24.3 \
+            detect --source=/repo --redact --log-opts="--all"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes \
+            build-essential \
+            dvisvgm \
+            ffmpeg \
+            libcairo2-dev \
+            libpango1.0-dev \
+            pkg-config \
+            texlive-fonts-recommended \
+            texlive-latex-base \
+            texlive-latex-extra \
+            texlive-science
+
+      - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: true
+          python-version: "3.12"
+          version: "0.11.12"
+
+      - name: Install locked dependencies
+        run: uv sync --all-extras --dev --locked
+
+      - name: Lint
+        run: uv run ruff check src tests typings
+
+      - name: Format check
+        run: uv run black --check src tests typings
+
+      - name: Static type check
+        run: uv run mypy src/olympianim
+
+      - name: Audit locked dependencies
+        run: |
+          uv export --all-extras --no-hashes --frozen --output-file /tmp/requirements.txt
+          uvx pip-audit --requirement /tmp/requirements.txt
+
+      - name: Build distributions
+        run: uv build
+
+      - name: Test with coverage
+        run: uv run pytest --cov=olympianim --cov-report=term-missing --cov-fail-under=85

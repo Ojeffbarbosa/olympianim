@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Olympianim é uma ferramenta local de autoria docente para criar vídeos de apresentação e resolução de problemas olímpicos com IA Gen, Manim e revisão humana." />
+  <meta name="theme-color" content="#050505" />
+  <meta name="color-scheme" content="dark" />
+  <title>Olympianim</title>
+  <link rel="icon" href="assets/brand/olympianim-logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Olympianim",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Linux, macOS, Windows",
+        "softwareVersion": "0.1.0",
+        "license": "https://opensource.org/licenses/MIT",
+        "codeRepository": "https://github.com/Ojeffbarbosa/olympianim",
+        "description": "Ferramenta local de autoria docente para produzir vídeos educacionais de problemas olímpicos com IA Gen e Manim."
+      }
+    </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="ambient-grid" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="#inicio" aria-label="Olympianim — início">
+      <img src="assets/brand/olympianim-logo.png" alt="" width="42" height="42" />
+      <span>Olympianim</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu"
+      data-menu-toggle>
+      <span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Navegação principal" data-nav>
+      <a href="#exemplos">Estudos de caso</a>
+      <a href="#recursos">Projeto</a>
+      <a href="#fluxo">Fluxo</a>
+      <a href="#stack">Stack</a>
+      <a href="#artigo">Artigo</a>
+      <a class="nav-github" href="https://github.com/Ojeffbarbosa/olympianim">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> apresentação do projeto · código aberto</p>
+        <h1 id="hero-title">
+          Matemática olímpica<br />
+          <em>em movimento.</em>
+        </h1>
+        <p class="hero-lead">
+          Projeto de pesquisa e desenvolvimento sobre autoria docente de animações para
+          educação matemática. O protótipo organiza agentes de IA Gen, Manim, narração
+          sincronizada e revisão humana em um fluxo supervisionado.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#exemplos">Ver estudos de caso</a>
+          <a class="button button-ghost" href="https://github.com/Ojeffbarbosa/olympianim" target="_blank"
+            rel="noopener noreferrer">Acessar o código do projeto</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement-band" aria-label="Proposta do projeto">
+      <p class="section-number">00 / proposta</p>
+      <p class="statement-text reveal">
+        O Olympianim é um aplicativo local de autoria docente que organiza a produção de vídeos
+        de apresentação e resolução para problemas de matemática olímpica, combinando
+        <em>IA Gen, Manim e revisão do professor</em>.
+      </p>
+    </section>
+
+    <section class="section examples-section" id="exemplos" aria-labelledby="exemplos-title">
+      <div class="section-heading examples-heading reveal">
+        <div>
+          <p class="section-number">01 / estudos de caso</p>
+          <h2 id="exemplos-title">Vídeos gerados a partir<br />de problemas olímpicos.</h2>
+          <p class="examples-attribution">
+            Os problemas de referência vêm da
+            <a href="https://www.obmep.org.br/provas.htm?max-results=7" target="_blank"
+              rel="noopener noreferrer">20ª OBMEP 2025</a>, da
+            <a href="https://olimpiadamirim.obmep.org.br/provas-solucoes" target="_blank"
+              rel="noopener noreferrer">4ª Olimpíada Mirim — OBMEP 2025</a> e da
+            <a href="https://www.obm.org.br/como-se-preparar/provas-e-gabaritos/" target="_blank"
+              rel="noopener noreferrer">7ª Competição Elon Lages Lima de Matemática 2026</a>.
+            Os enunciados não são reproduzidos nesta página; consulte as fontes oficiais indicadas
+            em cada estudo. Enunciados, marcas e materiais correlatos permanecem sob os direitos de
+            seus titulares e não integram a licença MIT do aplicativo.
+          </p>
+        </div>
+      </div>
+
+      <div class="examples-grid" data-examples-grid>
+        <!-- Os estudos de caso são montados a partir dos dados em script.js. -->
+      </div>
+    </section>
+
+    <section class="section" id="recursos" aria-labelledby="recursos-title">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-number">02 / escopo do protótipo</p>
+          <h2 id="recursos-title">Funcionalidades<br />implementadas.</h2>
+        </div>
+        <p>
+          O protótipo reúne planejamento didático, geração e edição de código, renderização e
+          documentação do processo em um fluxo supervisionado.
+        </p>
+      </div>
+
+      <div class="feature-ledger">
+        <article class="feature feature-wide reveal">
+          <span class="feature-code">A01</span>
+          <div>
+            <h3>Entrada multimodal orientada pelo professor</h3>
+            <p>
+              Digite o enunciado ou envie imagens. Anexe uma resolução, instruções pedagógicas
+              e objetos visuais que podem entrar na animação.
+            </p>
+          </div>
+          <div class="mini-composition" aria-hidden="true">
+            <div class="paper-sheet"><span>Q.</span><i></i><i></i><i></i></div>
+            <div class="image-chip">PNG</div>
+            <div class="image-chip second">JPG</div>
+          </div>
+        </article>
+
+        <article class="feature reveal">
+          <span class="feature-code">A02</span>
+          <h3>Agentes de IA Gen</h3>
+          <p>Solucionador, planejador, construtor e depurador atuam em etapas distintas.</p>
+          <div class="agent-list" aria-hidden="true">
+            <span>solucionador</span><span>planejador</span><span>construtor</span><span>depurador</span>
+          </div>
+        </article>
+
+        <article class="feature feature-accent reveal">
+          <span class="feature-code">A03</span>
+          <h3>Humano no ciclo</h3>
+          <p>
+            Base matemática, planos e códigos param para revisão. Nada é renderizado sem aprovação.
+          </p>
+          <div class="approval-stamp" aria-hidden="true">REVISADO<br /><b>✓</b></div>
+        </article>
+
+        <article class="feature feature-voice reveal">
+          <span class="feature-code">A04</span>
+          <h3>Voz e sincronização nativas</h3>
+          <p>
+            Manim Voiceover coordena fala e animação. O app preserva SRT e transcrição de cada
+            vídeo.
+          </p>
+          <div class="wave" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </article>
+
+        <article class="feature feature-wide reveal">
+          <span class="feature-code">A05</span>
+          <div>
+            <h3>Editor Manim</h3>
+            <p>
+              Edite Python diretamente ou peça uma proposta à IA Gen. Salve conscientemente,
+              restaure versões e renderize de novo com outra voz.
+            </p>
+          </div>
+          <pre class="code-fragment" aria-hidden="true"><code><span>with</span> self.voiceover(text=narracao) <span>as</span> tracker:
+    self.play(Write(ideia))
+    self.wait_until_bookmark(<em>"passo_2"</em>)</code></pre>
+        </article>
+
+        <article class="feature reveal">
+          <span class="feature-code">A06</span>
+          <h3>Legenda</h3>
+          <p>Baixe o SRT ou incorpore legendas coloridas ao MP4.</p>
+          <div class="caption-preview" aria-hidden="true">Observe o padrão.</div>
+        </article>
+
+        <article class="feature reveal">
+          <span class="feature-code">A07</span>
+          <h3>Acompanhar consumo</h3>
+          <p>Chamadas, tokens, áudio e custo estimado por projeto, agente, modelo e período.</p>
+          <div class="cost-bars" aria-hidden="true">
+            <i style="--bar: 42%"></i><i style="--bar: 78%"></i><i style="--bar: 56%"></i>
+          </div>
+        </article>
+
+        <article class="feature feature-accent reveal">
+          <span class="feature-code">A08</span>
+          <h3>Exportação</h3>
+          <p>
+            Gere um ZIP do projeto com prompts, vídeos e códigos.
+          </p>
+          <div class="archive-mark" aria-hidden="true">.ZIP<span>SHA-256</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section workflow-section" id="fluxo" aria-labelledby="fluxo-title">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-number">03 / fluxo de produção</p>
+          <h2 id="fluxo-title">Etapas de geração<br />dos vídeos.</h2>
+        </div>
+        <p>
+          O fluxo gera primeiro a apresentação do problema, e depois a resolução.
+        </p>
+      </div>
+
+      <div class="workflow-input reveal">
+        <div>
+          <span class="workflow-label">entrada do projeto</span>
+          <h3>Dados usados pelo fluxo</h3>
+        </div>
+        <p>
+          Enunciado e respectivas imagens; objetos visuais; solução textual ou fotografada,
+          quando fornecida; orientações do usuário; modelo de IA Gen, voz e paleta de cores selecionados.
+        </p>
+      </div>
+
+      <div class="workflow-map" aria-label="Etapas implementadas no fluxo de geração">
+        <section class="workflow-phase workflow-phase-basis reveal" aria-labelledby="basis-phase-title">
+          <header class="workflow-phase-heading">
+            <span>etapa comum</span>
+            <h3 id="basis-phase-title">Base matemática</h3>
+          </header>
+          <ol class="workflow-stages workflow-stages-single">
+            <li class="workflow-stage">
+              <div class="workflow-stage-topline"><b>01</b><span>solucionador</span></div>
+              <h4>Preparação da base</h4>
+              <p>
+                Uma solução textual enviada pelo usuário é adotada diretamente. Se houver uma
+                imagem da solução, o solucionador a interpreta; se não houver solução, ele
+                produz uma proposta matemática.
+              </p>
+              <p class="workflow-review">
+                Bases produzidas pelo modelo aguardam aprovação, edição ou nova geração antes
+                de continuar.
+              </p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="workflow-phase workflow-phase-presentation reveal" aria-labelledby="presentation-phase-title">
+          <header class="workflow-phase-heading">
+            <span>vídeo 1</span>
+            <h3 id="presentation-phase-title">Apresentação</h3>
+          </header>
+          <ol class="workflow-stages">
+            <li class="workflow-stage">
+              <div class="workflow-stage-topline"><b>02</b><span>planejador</span></div>
+              <h4>Plano da apresentação</h4>
+              <p>O planejador recebe o enunciado, as orientações e a base matemática e gera o roteiro.</p>
+              <p class="workflow-review">O usuário pode editar, regenerar ou aprovar o plano.</p>
+            </li>
+            <li class="workflow-stage">
+              <div class="workflow-stage-topline"><b>03</b><span>construtor</span></div>
+              <h4>Código da apresentação</h4>
+              <p>O construtor converte o plano aprovado em código Manim com narração e sincronização.</p>
+              <p class="workflow-review">O usuário pode editar, regenerar ou aprovar o código.</p>
+            </li>
+            <li class="workflow-stage">
+              <div class="workflow-stage-topline"><b>04</b><span>Manim · corretor</span></div>
+              <h4>Renderização</h4>
+              <p>O código aprovado é renderizado. Uma falha causada pelo código pode acionar o corretor e uma nova
+                tentativa, até o limite configurado.</p>
+              <p class="workflow-output">Saída: vídeo de apresentação, legendas e transcrição.</p>
+            </li>
+          </ol>
+        </section>
+
+        <div class="workflow-gate reveal" role="note">
+          <span>pausa do fluxo</span>
+          <p>O aplicativo exibe a apresentação e aguarda o usuário selecionar <strong>Gerar resolução</strong>.</p>
+        </div>
+
+        <section class="workflow-phase workflow-phase-solution reveal" aria-labelledby="solution-phase-title">
+          <header class="workflow-phase-heading">
+            <span>vídeo 2</span>
+            <h3 id="solution-phase-title">Resolução</h3>
+          </header>
+          <ol class="workflow-stages">
+            <li class="workflow-stage">
+              <div class="workflow-stage-topline"><b>05</b><span>planejador</span></div>
+              <h4>Plano da resolução</h4>
+              <p>O planejador usa o enunciado, as orientações e a mesma base matemática definida no início.</p>
+              <p class="workflow-review">O usuário pode editar, regenerar ou aprovar o plano.</p>
+            </li>
+            <li class="workflow-stage">
+              <div class="workflow-stage-topline"><b>06</b><span>construtor</span></div>
+              <h4>Código da resolução</h4>
+              <p>O construtor converte o plano aprovado em outro código Manim com narração e sincronização.</p>
+              <p class="workflow-review">O usuário pode editar, regenerar ou aprovar o código.</p>
+            </li>
+            <li class="workflow-stage">
+              <div class="workflow-stage-topline"><b>07</b><span>Manim · corretor</span></div>
+              <h4>Renderização</h4>
+              <p>O código aprovado é renderizado e segue o mesmo ciclo de correção técnica usado na apresentação.</p>
+              <p class="workflow-output">Saída: vídeo de resolução.</p>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <aside class="workflow-after reveal" aria-label="Ações disponíveis depois da geração">
+        <span>depois da geração</span>
+        <p>Se necessário, o usuário pode solicitar alterações pelo chat de IA Gen ou editar manualmente os códigos
+          gerados no Editor Manim. As alterações podem ser salvas como novas versões e renderizadas. Na tela dos vídeos,
+          as legendas podem ser baixadas, incorporadas ou removidas.</p>
+      </aside>
+
+    </section>
+
+    <section class="section stack-section" id="stack" aria-labelledby="stack-title">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-number">04 / stack e arquitetura</p>
+          <h2 id="stack-title">Componentes usados<br />no protótipo.</h2>
+        </div>
+        <p>
+          A aplicação é escrita em Python e executada localmente. A separação por camadas mantém
+          interface, orquestração, produção audiovisual e persistência com responsabilidades
+          identificáveis.
+        </p>
+      </div>
+
+      <div class="stack-map reveal" aria-label="Camadas tecnológicas do Olympianim">
+        <article class="stack-layer">
+          <span class="stack-index">01</span>
+          <div>
+            <p class="stack-kicker">interface e autoria</p>
+            <h3>Streamlit <small>≥ 1.59</small></h3>
+            <p>Interface multipágina, formulários de revisão, estado de sessão e Editor Manim com controle explícito de
+              versões.</p>
+          </div>
+          <a href="https://docs.streamlit.io/" target="_blank" rel="noopener noreferrer">documentação ↗</a>
+        </article>
+        <article class="stack-layer">
+          <span class="stack-index">02</span>
+          <div>
+            <p class="stack-kicker">agentes e estado</p>
+            <h3>LangGraph <small>≥ 1.2</small> + LangChain <small>≥ 1.0</small></h3>
+            <p>Grafo de agentes, checkpoints por projeto, interrupções para aprovação humana e retomada das etapas.</p>
+          </div>
+          <a href="https://docs.langchain.com/oss/python/langgraph/overview" target="_blank"
+            rel="noopener noreferrer">documentação ↗</a>
+        </article>
+        <article class="stack-layer stack-layer-accent">
+          <span class="stack-index">03</span>
+          <div>
+            <p class="stack-kicker">animação, voz e vídeo</p>
+            <h3>Manim Community <small>0.20.x</small> + Manim Voiceover <small>≥ 0.4</small></h3>
+            <p>Construção das cenas, sincronização da narração, legendas SRT e renderização com FFmpeg, Cairo, Pango e
+              LaTeX.</p>
+          </div>
+          <div class="stack-links">
+            <a href="https://docs.manim.community/" target="_blank" rel="noopener noreferrer">Manim ↗</a>
+            <a href="https://voiceover.manim.community/" target="_blank" rel="noopener noreferrer">Voiceover ↗</a>
+          </div>
+        </article>
+        <article class="stack-layer">
+          <span class="stack-index">04</span>
+          <div>
+            <p class="stack-kicker">dados e contratos</p>
+            <h3>SQLite + Pydantic <small>≥ 2.13</small></h3>
+            <p>Projetos, eventos, versões, preferências e checkpoints locais, com contratos tipados para os dados do
+              fluxo.</p>
+          </div>
+          <div class="stack-links">
+            <a href="https://www.sqlite.org/docs.html" target="_blank" rel="noopener noreferrer">SQLite ↗</a>
+            <a href="https://docs.pydantic.dev/" target="_blank" rel="noopener noreferrer">Pydantic ↗</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="stack-support reveal">
+        <div>
+          <span>runtime</span>
+          <strong>Python 3.12</strong>
+          <p>Linguagem oficial de desenvolvimento da aplicação.</p>
+        </div>
+        <div>
+          <span>modelos de IA Gen</span>
+          <strong>OpenAI · Google · Anthropic</strong>
+          <p>Adaptadores opcionais; o modelo pode ser escolhido por etapa.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tour-section" id="interface" aria-labelledby="interface-title">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-number">05 / interface do protótipo</p>
+          <h2 id="interface-title">Telas e etapas<br />da aplicação.</h2>
+        </div>
+        <p>
+          Conheça as áreas disponíveis no aplicativo. As capturas foram feitas na versão atual
+          do Olympianim.
+        </p>
+      </div>
+
+      <div class="app-tour reveal">
+        <div class="tour-tabs" role="tablist" aria-label="Telas do aplicativo">
+          <button role="tab" aria-selected="true" data-tour-index="0"><span>01</span>Início e geração</button>
+          <button role="tab" aria-selected="false" data-tour-index="1"><span>02</span>Projetos</button>
+          <button role="tab" aria-selected="false" data-tour-index="2"><span>03</span>Produção</button>
+          <button role="tab" aria-selected="false" data-tour-index="3"><span>04</span>Apresentação</button>
+          <button role="tab" aria-selected="false" data-tour-index="4"><span>05</span>Resolução</button>
+          <button role="tab" aria-selected="false" data-tour-index="5"><span>06</span>Editor Manim</button>
+          <button role="tab" aria-selected="false" data-tour-index="6"><span>07</span>Consumo</button>
+          <button role="tab" aria-selected="false" data-tour-index="7"><span>08</span>Prompts</button>
+          <button role="tab" aria-selected="false" data-tour-index="8"><span>09</span>Preferências</button>
+          <button role="tab" aria-selected="false" data-tour-index="9"><span>10</span>Modelos IA Gen</button>
+          <button role="tab" aria-selected="false" data-tour-index="10"><span>11</span>Modelos de voz</button>
+          <button role="tab" aria-selected="false" data-tour-index="11"><span>12</span>Paletas</button>
+        </div>
+        <figure class="tour-screen">
+          <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>localhost:8501</span></div>
+          <img src="assets/screenshots/01-inicio-configuracao.png"
+            alt="Tela inicial do Olympianim com opções carregadas de IA Gen, voz e paleta" width="1440" height="1024"
+            data-tour-image />
+          <figcaption data-tour-caption>
+            Configure provedor, modelo, chave da sessão, voz, idioma, velocidade e paleta antes de criar o projeto.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section project-costs-section" id="custos" aria-labelledby="costs-title">
+      <aside class="license-panel reveal" aria-label="Licença do Olympianim">
+        <span>código-fonte</span>
+        <strong>MIT</strong>
+        <p>Disponível publicamente no GitHub para usar, estudar, modificar e distribuir.</p>
+      </aside>
+
+      <div class="project-costs-content">
+        <div class="project-costs-heading reveal">
+          <p class="section-number">06 / licença e custos</p>
+          <h2 id="costs-title">Código aberto no GitHub.<br /><em>Requer chave de API para uso.</em></h2>
+          <p>
+            O código-fonte original do aplicativo Olympianim é gratuito e disponibilizado sob a licença MIT. Para utilizar
+            o fluxo de geração da versão atual, o usuário precisa conectar sua própria chave de
+            API da OpenAI, Google ou Anthropic. Esses serviços são externos e podem cobrar pelo
+            consumo diretamente em suas plataformas.
+          </p>
+        </div>
+
+        <div class="costs-ledger reveal" aria-label="O que é gratuito e o que pode gerar custos">
+          <article>
+            <span>01 · repositório</span>
+            <h3>Código no GitHub</h3>
+            <p>Qualquer pessoa pode baixar, instalar e modificar o código original do Olympianim conforme as condições da licença MIT.</p>
+          </article>
+          <article>
+            <span>02 · APIs necessárias</span>
+            <h3>Provedores externos</h3>
+            <p>OpenAI, Google e Anthropic mantêm suas próprias contas, preços e cobranças. É responsabilidade do usuário
+              conectar sua própria chave de API.</p>
+          </article>
+          <article>
+            <span>03 · adaptação</span>
+            <h3>Outros provedores</h3>
+            <p>Como o código é aberto, desenvolvedores podem modificá-lo e implementar adaptadores para outros modelos
+              ou serviços de IA Gen.</p>
+          </article>
+        </div>
+
+        <div class="project-costs-action reveal">
+          <p>O Olympianim não vende créditos e não define os preços praticados pelos
+            provedores, somente estabelece como serão utilizados.</p>
+          <a class="button button-primary" href="https://github.com/Ojeffbarbosa/olympianim">Ver código no GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section providers-section" aria-labelledby="providers-title">
+      <p class="section-number">07 / provedores compatíveis</p>
+      <div class="providers-intro reveal">
+        <h2 id="providers-title">Integrações de IA Gen e voz.</h2>
+        <p>
+          O catálogo suporta OpenAI, Google e Anthropic para texto, além de OpenAI e Google para
+          voz. A seleção pode mudar entre solução, planejamento, construção e edição.
+        </p>
+      </div>
+      <div class="provider-table reveal" role="table" aria-label="Compatibilidade de provedores">
+        <div role="row" class="provider-head"><span role="columnheader">Capacidade</span><span
+            role="columnheader">OpenAI</span><span role="columnheader">Google</span><span
+            role="columnheader">Anthropic</span></div>
+        <div role="row"><span role="cell">Planejar e gerar código</span><b role="cell">sim</b><b role="cell">sim</b><b
+            role="cell">sim</b></div>
+        <div role="row"><span role="cell">Interpretar imagens</span><b role="cell">sim</b><b role="cell">sim</b><b
+            role="cell">sim</b></div>
+        <div role="row"><span role="cell">Narração integrada</span><b role="cell">sim</b><b role="cell">sim</b><span
+            role="cell">—</span></div>
+        <div role="row"><span role="cell">Modelos personalizados no catálogo</span><b role="cell">sim</b><b
+            role="cell">sim</b><b role="cell">sim</b></div>
+      </div>
+      <p class="table-note">Disponibilidade e preços pertencem aos provedores e podem mudar. O aplicativo usa suas
+        próprias chaves de API.</p>
+    </section>
+
+    <section class="section limitations-section" id="limitacoes" aria-labelledby="limitacoes-title">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-number">08 / limitações</p>
+          <h2 id="limitacoes-title">Limites atuais<br />do projeto.</h2>
+        </div>
+        <p>
+          O Olympianim é um protótipo de pesquisa. Os pontos abaixo registram suas
+          restrições técnicas e operacionais e delimitam a evidência disponível até o momento.
+        </p>
+      </div>
+
+      <div class="limitations-grid">
+        <article class="limitation-item reveal">
+          <span class="limitation-index">01</span>
+          <div>
+            <p class="limitation-tag">infraestrutura</p>
+            <h3>Dependência de serviços externos</h3>
+            <p>Geração por IA Gen e algumas vozes dependem de APIs sujeitas a custo, cota, latência, indisponibilidade e
+              mudanças de comportamento dos modelos.</p>
+          </div>
+        </article>
+        <article class="limitation-item reveal">
+          <span class="limitation-index">02</span>
+          <div>
+            <p class="limitation-tag">execução</p>
+            <h3>Renderização sensível ao ambiente</h3>
+            <p>Manim, LaTeX, fontes, FFmpeg, Cairo e Pango precisam estar corretamente instalados. Diferenças de versão
+              ou configuração podem alterar ou impedir a renderização.</p>
+          </div>
+        </article>
+        <article class="limitation-item reveal">
+          <span class="limitation-index">03</span>
+          <div>
+            <p class="limitation-tag">autoria e refinamento</p>
+            <h3>Gerar sem programar não garante uma animação perfeita</h3>
+            <p>O aplicativo é um protótipo e permite produzir animações sem escrever código, mas o resultado pode exigir
+              ajustes técnicos, visuais, de composição, ritmo ou sincronização.</p>
+          </div>
+        </article>
+        <article class="limitation-item limitation-item-accent reveal">
+          <span class="limitation-index">04</span>
+          <div>
+            <p class="limitation-tag">evidência educacional</p>
+            <h3>Resultados de aprendizagem ainda precisam ser investigados</h3>
+            <p>Os exemplos comprovam a execução do fluxo, mas não demonstram, isoladamente, ganho de aprendizagem, pois
+              não houve aplicação em contexto de sala de aula.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="limitations-note reveal">
+        <span>delimitação</span>
+        <p>O Olympianim é um protótipo de pesquisa e as limitações listadas são inerentes à versão
+          atual. O desenvolvimento prossegue visando aprimorar a experiência de autoria e explorar
+          novas integrações.</p>
+      </div>
+    </section>
+
+    <section class="section article-section" id="artigo" aria-labelledby="artigo-title">
+      <div class="article-card reveal">
+        <div>
+          <p class="section-number">09 / pesquisa</p>
+          <h2 id="artigo-title">Artigo científico</h2>
+          <p>
+            O artigo científico está em fase final de elaboração e será disponibilizado em breve.
+          </p>
+        </div>
+        <div class="article-status">
+          <span>status da publicação</span>
+          <strong>Em breve</strong>
+          <small>O link será disponibilizado após a publicação.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <img src="assets/brand/olympianim-logo.png" alt="" width="92" height="92" />
+      <p class="section-number">código · documentação · estudos de caso</p>
+      <h2 id="closing-title">Código e estudos de caso<br />disponíveis publicamente.</h2>
+      <div class="hero-actions">
+        <a class="button button-primary" href="https://github.com/Ojeffbarbosa/olympianim">Consultar repositório</a>
+        <a class="button button-ghost" href="https://github.com/Ojeffbarbosa/olympianim#readme" target="_blank"
+          rel="noopener noreferrer">Consultar README</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <img src="assets/brand/olympianim-logo.png" alt="" width="38" height="38" />
+      <div><strong>Olympianim</strong><span>Matemática olímpica em movimento.</span></div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/Ojeffbarbosa/olympianim">GitHub</a>
+      <a href="https://docs.manim.community/">Manim</a>
+      <a href="#limitacoes">Limitações</a>
+      <a href="#artigo">Artigo</a>
+      <a href="#inicio">Voltar ao topo ↑</a>
+    </div>
+    <p class="footer-note">
+      O Olympianim gera conteúdo com IA Gen. O usuário deve revisar a correção matemática,
+      pedagógica, técnica e autoral antes de utilizar ou publicar os materiais. O software é
+      distribuído sob a licença MIT; essa licença cobre somente o código-fonte original do
+      aplicativo. Enunciados, recortes de questões, marcas, imagens, vídeos demonstrativos
+      derivados e outros materiais de terceiros não fazem parte da licença MIT e permanecem
+      sujeitos aos direitos de seus titulares. O uso das APIs pode gerar custos cobrados
+      diretamente pelos provedores.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

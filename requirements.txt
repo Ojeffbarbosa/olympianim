@@ -1,0 +1,3 @@
+# The dependency constraints live in pyproject.toml, the project's source of truth.
+# This installs every runtime provider supported by the local app.
+-e .[all]

@@ -1,0 +1,100 @@
+# Credenciais e configurações locais
+.env
+.env.*
+!.env.example
+
+# Materiais antigos, documentos de pesquisa e projetos mantidos apenas localmente
+/arquivos_antigos/
+
+# Python e empacotamento
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+develop-eggs/
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
+
+# Testes, cobertura e análise estática
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+pyrightconfig.json
+
+# Editores e sistema operacional
+.agents/
+.codex/
+.idea/
+.vscode/
+.streamlit/secrets.toml
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.ipynb_checkpoints/
+
+# Artefatos gerados pelo Manim
+media/
+partial_movie_files/
+*.mp4
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webm
+*.mov
+*.wav
+*.mp3
+*.ogg
+*.flac
+
+# A identidade visual da aplicação faz parte do código-fonte.
+!src/olympianim/assets/
+!src/olympianim/assets/*.png
+
+# Os recursos do site estático são publicados pelo GitHub Pages.
+!page/assets/
+!page/assets/**
+
+# Dados e projetos produzidos pela aplicação
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+workspace/projects/*
+!workspace/projects/.gitkeep
+
+# Logs e saídas locais
+*.log
+logs/
+*.out
+
+# Saídas de ferramentas de documentação
+_site/
+docs/_build/
