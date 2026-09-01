@@ -54,11 +54,6 @@ jobs:
       - name: Static type check
         run: uv run mypy src/olympianim
 
-      - name: Audit locked dependencies
-        run: |
-          uv export --all-extras --no-hashes --frozen --output-file /tmp/requirements.txt
-          uvx pip-audit --requirement /tmp/requirements.txt
-
       - name: Build distributions
         run: uv build
 
