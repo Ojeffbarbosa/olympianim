@@ -1,6 +1,6 @@
 # Olympianim
 
-[![Qualidade](https://github.com/Ojeffbarbosa/olympianim/actions/workflows/quality.yml/badge.svg)](https://github.com/Ojeffbarbosa/olympianim/actions/workflows/quality.yml)
+[![Qualidade](https://github.com/Ojeffbarbosa/olympianim/actions/workflows/quality.yml/badge.svg?branch=main)](https://github.com/Ojeffbarbosa/olympianim/actions/workflows/quality.yml?query=branch%3Amain)
 
 O Olympianim é um protótipo local de autoria docente para criar vídeos de apresentação e
 resolução de problemas olímpicos de Matemática com IA generativa, Manim e narração opcional.
