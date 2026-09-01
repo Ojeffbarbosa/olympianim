@@ -1646,6 +1646,36 @@ code {
   line-height: 0.8;
 }
 
+.article-link {
+  display: flex;
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  color: var(--paper);
+  background: var(--black);
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-decoration: none;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.article-link span {
+  color: var(--cyan);
+  font-size: 1rem;
+}
+
+.article-link:hover {
+  color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+.article-link:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 3px;
+}
+
 .closing {
   display: grid;
   min-height: 80vh;
